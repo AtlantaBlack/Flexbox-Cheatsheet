@@ -1,3 +1,26 @@
-body {
-    font-family: 'Tahoma', sans-serif;
+:root {
+    --pink: rgb(221, 132, 233);
+    --dark-grey: rgb(55, 55, 56);
+    --text-colour: rgb(189, 216, 216);
+}
+
+* {
+    font-family: "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif;
+    font-size: 16px;
+    background-color: var(--dark-grey);
+    color: var(--text-colour);
+}
+
+section.row {
+    border: 1px solid yellow;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+div.card-container {
+    border: 1px solid blue;
+}
+
+div.card {
+    border: 1px solid red;
 }
