@@ -14,6 +14,7 @@
 * {
     font-family: "Segoe UI", "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 18px;
+    line-height: 1.5rem;
 }
 
 body {
@@ -24,7 +25,6 @@ body {
 p {
     /* border: 1px solid goldenrod; */
     color: var(--pale-grey);
-    line-height: 1.5rem;
     margin: 1rem 0;
 }
 
@@ -36,7 +36,8 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
+    margin: 1.5rem 0;
 }
 
 h2 {
@@ -53,9 +54,8 @@ header {
     width: 70%;
     margin: 0 auto;
     text-align: center;
-    padding-bottom: 1rem;
+    padding: 1rem;
 }
-
 
 /* start flex using a big containter (a house) that encloses all flex elements (rooms) inside */
 section.row {
@@ -70,7 +70,7 @@ div.card-container {
     /* border: 1px solid red; */
     flex: 1 0 100%;
     width: 100%;
-    height: auto;
+    margin-bottom: 2.2rem;
 }
 
 /* the flex element's contents has styling inside (furniture) */
@@ -78,7 +78,10 @@ div.card {
     border: 0.12rem dashed var(--pale-grey);
     padding: 0.75rem;
     margin: 1rem;
-    /* height: 300px; height control for each card */
+    min-height: 100%; /* height control for each card */
+
+    display:flex;
+    flex-direction: column;
 }
 
 div p {
@@ -100,28 +103,30 @@ h2.card-header {
 pre {
     /* border: 1px solid orange; */
     white-space: pre-wrap;
+    tab-size: 2;
     font-family: "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
     background-image: linear-gradient(
         rgba(232, 102, 236, 0.3) 0%,
         rgba(232, 102, 236, 0.6) 100%
     );
     border-radius: 0.5rem;
+
+    /* add display:flex to code to align text in centre of pre */
+    display: flex;
+    flex-grow: 1;
+    align-items: stretch;
 }
 
 code {
     -webkit-user-select: all; /* this allows user to select */
     user-select:         all; /* all code text by clicking it */
     display: block;  /* display:block has its own padding styling */
-    font-size: 90%;
     font-family: inherit;  /* inherit font from parent container (pre) */
 
-    /* add display:flex to code to align text in centre of pre */
     display: flex;
-    flex: 1;
-    align-items: center;
+    align-items: center; 
 
-    line-height: 1rem;
-    padding: 1.5rem 1rem;
+    padding: 0 1rem;
 }
 
 /* to make an inner and outer glow, box-shadow uses two value-blocks:
@@ -134,18 +139,18 @@ div.card:hover h2 {
     transition: all 0.5s ease-in-out;
 }
 
-/* if the house is bigger than 768px, build two rooms side by side. Each room still takes 1 block on screen, but min width is now 50% (to make two columns) */
+/* if the house is bigger than 768px, build two rooms side by side. Each room WILL GROW to 1 block size on screen, but min width is now 50% (to make two columns) */
 @media screen and (min-width: 768px) {
     .card-container {
-        flex: 1 0 50%;
+        flex: 0 0 50%;
         max-width: 50%;
     }
 }
 
-/* if the house is bigger than 992px, build three rooms side by side. Each room still occupies 1 block on screen, but min width is now 33% (to make three columns)  */
+/* if the house is bigger than 992px, build three rooms side by side. Each room STILL GROWS to 1 block size on screen, but min width is now 33% (to make three columns)  */
 @media screen and (min-width: 992px) {
     .card-container {
-        flex: 1 0 33%;
+        flex: 0 0 33%;
         max-width: 33%;
     }
 }
