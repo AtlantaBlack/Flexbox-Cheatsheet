@@ -98,6 +98,7 @@ h2.card-header {
     position: relative;
     margin-top: -1.65rem;
     padding: 0.65rem;
+    line-height: 2rem;
 }
 
 pre {
