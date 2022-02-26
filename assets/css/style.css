@@ -2,6 +2,12 @@
     --pink: rgb(231, 109, 255);
     --dark-grey: rgb(55, 55, 56);
     --pale-grey: rgb(189, 216, 216);
+    --neon-green: rgb(152, 255, 215);
+}
+
+::selection {
+    background-color: var(--neon-green);
+    color: var(--dark-grey);
 }
 
 /* NB: do not put background-colour in universal * selector because it will apply bg-color to all the text too */
@@ -105,17 +111,28 @@ pre {
 code {
     -webkit-user-select: all; /* this allows user to select */
     user-select:         all; /* all code text by clicking it */
-    display: block; /* display:block has its own padding styling */
+    display: block;  /* display:block has its own padding styling */
     font-size: 90%;
-    font-family: inherit; /* inherit font from parent container (pre) */
+    font-family: inherit;  /* inherit font from parent container (pre) */
 
+    /* add display:flex to code to align text in centre of pre */
     display: flex;
     flex: 1;
     align-items: center;
 
+    line-height: 1rem;
     padding: 1.5rem 1rem;
 }
 
+/* to make an inner and outer glow, box-shadow uses two value-blocks:
+        box-shadow {value1, value2}
+inner glow specified by 'inset' at beginning of value1; default is outer glow */
+div.card:hover,
+div.card:hover h2 {
+    box-shadow: inset 0 0 8px rgba(232, 102, 236, 1), 0 0 15px rgb(102, 216, 236);
+    border-radius: 0.25rem;
+    transition: all 0.5s ease-in-out;
+}
 
 /* if the house is bigger than 768px, build two rooms side by side. Each room still takes 1 block on screen, but min width is now 50% (to make two columns) */
 @media screen and (min-width: 768px) {
