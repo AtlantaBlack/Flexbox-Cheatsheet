@@ -1,4 +1,4 @@
-# P02-Flexbox
-Introduction to responsive design using Flexbox and six content boxes
+# Flexbox Cheatsheet
+Introduction to responsive design using Flexbox with six content boxes
 
-https://atlantablack.github.io/P02-Flexbox/
+https://atlantablack.github.io/Flexbox-Cheatsheet/
